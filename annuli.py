@@ -404,7 +404,7 @@ def main(arguments = None):
     os.close(diffphot_db_handle)
 
     diff_args = [phot_db_path,
-                 '--output', diffphot_db_path, '--overwrite',
+                 diffphot_db_path, '--overwrite',
                  '--cores', options.ncores,
                  '--minimum-images', options.min_images,
                  '--stars', options.nconstant,
@@ -581,7 +581,7 @@ def main(arguments = None):
             # need to change the first argument (path to the input LEMONdB)
             # and the third one (path to the output LEMONdB)
             diff_args[0] = aper_phot_db_path
-            diff_args[2] = aper_diff_db_path
+            diff_args[1] = aper_diff_db_path
             check_run(diffphot.main, [str(a) for a in diff_args])
 
             miner = mining.LEMONdBMiner(aper_diff_db_path)
